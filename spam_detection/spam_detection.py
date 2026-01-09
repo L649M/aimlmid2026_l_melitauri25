@@ -69,6 +69,21 @@ print(cm)
 accuracy = accuracy_score(y_test, y_pred)
 print("\nAccuracy:", accuracy)
 
+
+
+# function to extract features from raw email text
+def extract_features_from_text(text):
+    words = len(text.split())
+    links = text.lower().count("http")
+    capital_words = sum(1 for w in text.split() if w.isupper())
+
+    spam_words = ["free", "win", "money", "offer", "click"]
+    spam_word_count = sum(text.lower().count(w) for w in spam_words)
+
+    return words, links, capital_words, spam_word_count
+
+
+
 # function to classify a new email based on extracted features
 def classify_email(words, links, capital_words, spam_word_count):
     data = [[words, links, capital_words, spam_word_count]]
@@ -86,6 +101,40 @@ spam_result = classify_email(
     capital_words=20,
     spam_word_count=8
 )
+
+
+# manual spam email text
+spam_text = """
+WIN WIN WIN FREE MONEY NOW!!!
+CLICK HERE http://spam.com http://spam.com
+LIMITED OFFER!!! FREE FREE FREE!!!
+ACT NOW AND GET MONEY!!!
+"""
+
+
+spam_features = extract_features_from_text(spam_text)
+spam_text_result = classify_email(*spam_features)
+
+print("\nSpam email TEXT classification result:", spam_text_result)
+
+
+# manual legitimate email text
+legit_text = """
+Hi John,
+
+I hope you are doing well.
+Please find attached the report from our last meeting.
+
+Best regards,
+Lasha
+"""
+
+legit_features = extract_features_from_text(legit_text)
+legit_text_result = classify_email(*legit_features)
+
+print("Legitimate email TEXT classification result:", legit_text_result)
+
+
 
 print("\nSpam email classification result:", spam_result)
 

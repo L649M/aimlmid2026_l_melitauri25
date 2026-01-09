@@ -1,75 +1,78 @@
-# Finding the Correlation &  Spam Email Detection
+# Finding the Correlation & Spam Email Detection
 
+This project contains two tasks completed for the AI/ML midterm assignment.
 
+--------------------------------
+1. Finding the Correlation
+--------------------------------
 
-The data was collected from the online graph available at:
+The data was collected from the online graph:
 
-http://max.ge/aiml\_midterm/31698\_html
+http://max.ge/aiml_midterm/31698_html
 
+The graph shows blue data points. Each point was inspected manually by hovering the mouse over it and writing down the X and Y coordinates.
 
+The collected values were saved in an Excel file and loaded into Python using the pandas library.
 
-The graph shows blue data points. Each data point was inspected by hovering the mouse
+Pearson’s correlation coefficient was calculated using the .corr() function.
 
-over it and manually writing down the X and Y coordinates.
+Result:
+The correlation coefficient is approximately 0.999, which shows a very strong positive linear correlation between X and Y.
 
+Visualization:
+A scatter plot was created to show the relationship between X and Y.
 
+Scatter plot file:
+correlation/correlation_scatter.png
 
-The collected values were saved in an Excel file and then loaded into Python using
+--------------------------------
+2. Spam Email Detection
+--------------------------------
 
-the pandas library.
+A spam email detection model was built using supervised machine learning.
 
+Dataset:
+The dataset contains 2500 emails with the following features:
+- words
+- links
+- capital_words
+- spam_word_count
+- is_spam (1 = spam, 0 = legitimate)
 
+Model:
+- Logistic Regression
+- 80% training data, 20% test data
 
-Pearson's correlation coefficient was calculated using the `.corr()` function in pandas.
+Evaluation:
+- Accuracy: 95.2%
+- Confusion matrix shows very good classification performance
 
-The result shows a very strong positive correlation between the variables X and Y.
+Visualizations:
+- Class distribution: spam_detection/class_distribution.png
+- Confusion matrix: spam_detection/confusion_matrix.png
 
-The correlation coefficient is approximately 0.999, which means that when X increases,
+--------------------------------
+Manual Email Text Classification
+--------------------------------
 
-Y also increases almost linearly.
+First, emails were classified manually by providing feature values directly to the model.
 
+After that, a simple text parser was implemented.
+The parser extracts features from raw email text:
+- number of words
+- number of links
+- number of capital words
+- number of spam-related words
 
+Two email texts were written manually:
+- A spam email with spam words, capital letters, and a link
+- A legitimate email with neutral language and no spam patterns
 
-\### Visualization
+The trained model correctly classified both emails.
 
+--------------------------------
+Conclusion
+--------------------------------
 
-
-The scatter plot below shows the relationship between X and Y values.
-
-It clearly demonstrates a strong linear trend and supports the calculated correlation result.
-
-
-
-!\[Scatter Plot](correlation/correlation\_scatter.png)
-
-
-
- #Spam Email Detection
-
-In this task, a spam email detection model was built using supervised machine learning.
-
-The dataset contains 2500 email records with the following features:
-
-words – number of words in the email
-links – number of links
-capital_words – number of capitalized words
-spam_word_count – number of spam-related words
-is_spam – target label (1 = spam, 0 = legitimate)
-
-First, the data was loaded and explored using the pandas library.
-Then the dataset was split into training (80%) and testing (20%) sets.
-
-A Logistic Regression model was trained on the training data.
-After training, the model was evaluated on the test set.
-
-The evaluation results are:
-
-Accuracy: 95.2%
-The confusion matrix shows that most emails were classified correctly, with only a small number of misclassifications.
-
-Two visualizations were created:
-
-1. Class distribution graph – shows the number of spam and legitimate emails.
-2. Confusion matrix plot – shows true and predicted classifications.
-
-Finally, the trained model was used to classify new example emails, and it successfully identified spam and legitimate messages.
+Both tasks were completed successfully.
+The project demonstrates correlation analysis and practical spam email detection using machine learning.
