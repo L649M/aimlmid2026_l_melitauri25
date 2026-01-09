@@ -1,4 +1,4 @@
-# Finding the Correlation
+# Finding the Correlation &  Spam Email Detection
 
 
 
@@ -44,7 +44,7 @@ It clearly demonstrates a strong linear trend and supports the calculated correl
 
 
 
- Spam Email Detection
+ #Spam Email Detection
 
 In this task, a spam email detection model was built using supervised machine learning.
 
